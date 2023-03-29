@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<conio.h>
+struct sum
+{
+	int a;
+	int b;
+}s;
+int main ()
+{
+	int sum1;
+	struct sum s;
+
+	printf("enter two numbers:");
+	scanf("%d%d", &s.a,&s.b);
+	sum1=s.a+s.b;
+	printf("n sum=%d", sum1);
+	getch();
+	
+}
+
