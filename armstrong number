@@ -1,0 +1,52 @@
+#include <stdio.h>
+int armstrong(int orgnum)
+{
+    int remainder = 0;
+    int sum = 0;
+    int num,n = 0;
+    float result = 0.0;
+    num = orgnum;
+    for (num = orgnum; num != 0; ++n)
+	 {
+       num /= 10;
+    }
+    for (num = orgnum; num != 0; num /= 10)
+	 {
+       remainder = num % 10;
+      result += pow(remainder, n);
+    }
+    if ((int)result == orgnum)
+     return 0;
+    else
+     return 1;
+}
+int main()
+{
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    
+    if (armstrong(num) == 0)
+	{
+        printf("%d is an Armstrong Number.", num);
+    }
+    else
+	{
+        printf("%d is not an Armstrong Number.", num);
+    }
+    return 0;
+}
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
