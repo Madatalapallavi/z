@@ -1,0 +1,73 @@
+2. #include<stdio.h>
+   #include<conio.h>
+   int main()
+ {
+	int n;
+	printf("enter n value:\n");
+	scanf("%d",&n);
+    if(n%5==0&&n%11==0)
+    printf("it is divided by 5 and 11\n");
+    else
+    printf("it is not divided by 5 and 11\n");
+  }
+
+3.  #include <stdio.h>
+    int main() {
+    char c;
+    printf("Enter a character: ");
+    scanf("%c", &c);
+
+    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+        printf("%c is an alphabet.", c);
+    else
+        printf("%c is not an alphabet.", c);
+
+    return 0;
+    }
+ 
+ 4. #include <stdio.h>
+     #include <ctype.h>
+     int main()
+  {
+    // Initializing variable.
+    char str[100];  
+    int i, vowels = 0;
+    
+    // Accepting input.
+    printf("Enter the string: ");
+    // best way to read string rather than gets/fgets
+    scanf("%[^\n]s",&str);
+    
+    //Initializing for loop. 
+    for(i = 0; str[i]; i++)  
+    {
+        //Counting the vowels.
+        if(str[i]=='a'|| str[i]=='e'||str[i]=='i'||
+           str[i]=='o'|| str[i]=='u'||str[i]=='A'||
+           str[i]=='E'||str[i]=='I'||str[i]=='O' ||str[i]=='U')
+        {
+            vowels++;
+        }
+    }
+ 	
+    //Printing the count of vowels.
+    printf("Total number of vowels: = %d\n",vowels);
+    
+    return 0;
+}
+
+5.  #include<stdio.h>
+ 
+   int main() {
+   char ch;
+ 
+   printf("\nEnter The Character : ");
+   scanf("%c", &ch);
+ 
+   if (ch >= 'A' && ch <= 'Z')
+      printf("Character is Upper Case Letters");
+   else
+      printf("Character is Not Upper Case Letters");
+ 
+   return (0);
+}
