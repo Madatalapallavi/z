@@ -1,0 +1,273 @@
+11.#include <stdio.h>
+
+// Recursive function to print natural numbers between 1 to n
+void printNaturalNumbers(int current, int limit) {
+    if(current > limit) {
+        return;
+    } else {
+        printf("%d, ", current);
+        printNaturalNumbers(current+1, limit);
+    }
+}
+
+int main() {
+    int lower, upper;
+    printf("Input lower limit: ");
+    scanf("%d", &lower);
+    printf("Input upper limit: ");
+    scanf("%d", &upper);
+
+    printf("Natural numbers between %d to %d: ", lower, upper);
+    printNaturalNumbers(lower, upper);
+    printf("\n");
+
+    return 0;
+}
+12.#include <stdio.h>
+
+void printEven(int start, int end) {
+    if(start > end) {
+        return;
+    }
+
+    if(start % 2 == 0) {
+        printf("%d ", start);
+    }
+
+    printEven(start+1, end);
+}
+
+void printOdd(int start, int end) {
+    if(start > end) {
+        return;
+    }
+
+    if(start % 2 != 0) {
+        printf("%d ", start);
+    }
+
+    printOdd(start+1, end);
+}
+
+int main() {
+    int start, end;
+
+    printf("Enter the lower limit: ");
+    scanf("%d", &start);
+
+    printf("Enter the upper limit: ");
+    scanf("%d", &end);
+
+    printf("Even numbers between %d to %d: ", start, end);
+    printf("Even(start, end)");
+
+    printf("\nOdd numbers between %d to %d: ", start, end);
+    printOdd(start, end);
+
+    return 0;
+}
+13.#include <stdio.h>
+
+int sum(int n);
+
+int main() {
+    int n;
+    printf("Enter the upper limit: ");
+    scanf("%d", &n);
+    printf("Sum of natural numbers from 1 to %d = %d\n", n, sum(n));
+    return 0;
+}
+
+int sum(int n) {
+    if (n == 1) {
+        return 1;
+    } else {
+        return n + sum(n-1);
+    }
+}
+14.#include <stdio.h>
+
+int sum(int n);
+
+int main() {
+    int n;
+    printf("Enter the upper limit: ");
+    scanf("%d", &n);
+    printf("Sum of natural numbers from 1 to %d = %d\n", n, sum(n));
+    return 0;
+}
+
+int sum(int n) {
+    if (n == 1) {
+        return 1;
+    } else {
+        return n + sum(n-1);
+    }
+}
+15.#include <stdio.h>
+
+int reverse(int num);
+
+int main() {
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    printf("Reverse of %d is %d\n", num, reverse(num));
+
+    return 0;
+}
+
+int reverse(int num) {
+    static int rev = 0;
+
+    if (num == 0) {
+        return rev;
+    } else {
+        rev = (rev * 10) + (num % 10);
+        reverse(num / 10);
+    }
+}
+16.#include <stdio.h>
+
+int isPalindrome(int num, int divisor) {
+    if (num < 10) {
+        return num == divisor % 10;
+    }
+    if (!isPalindrome(num / 10, divisor)) {
+        return 0;
+    }
+    divisor /= 10;
+    return num % 10 == divisor % 10;
+}
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if (isPalindrome(num, num)) {
+        printf("%d is palindrome", num);
+    } else {
+        printf("%d is not palindrome", num);
+    }
+    return 0;
+}
+17.#include <stdio.h>
+
+void swap(int* num1, int* num2);
+
+int main() {
+    int num1, num2;
+
+    printf("Enter two numbers to swap:\n");
+    scanf("%d%d", &num1, &num2);
+
+    printf("Before swapping:\n");
+    printf("Num1 = %d\n", num1);
+    printf("Num2 = %d\n", num2);
+
+    swap(&num1, &num2);
+
+    printf("After swapping:\n");
+    printf("Num1 = %d\n", num1);
+    printf("Num2 = %d\n", num2);
+
+    return 0;
+}
+
+void swap(int* num1, int* num2) {
+    int temp = *num1;
+    *num1 = *num2;
+    *num2 = temp;
+}
+18.#include <stdio.h>
+
+int sum_of_digits(int num);
+
+int main() {
+    int num;
+
+    printf("Enter a positive integer: ");
+    scanf("%d", &num);
+
+    printf("Sum of digits of %d = %d", num, sum_of_digits(num));
+
+    return 0;
+}
+
+int sum_of_digits(int num) {
+    if (num == 0) {
+        return 0;
+    } else {
+        return (num % 10) + sum_of_digits(num / 10);
+    }
+}
+19.#include <stdio.h>
+
+int main() {
+    int size, arr[100];
+
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+
+    printf("Enter the elements of the array: ");
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Array elements: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d", *(arr + i));
+        if (i != size - 1) {
+            printf(", ");
+        }
+    }
+
+    return 0;
+}
+20.#include <stdio.h>
+
+#define MAX_SIZE 100
+
+void copyArray(int *a, int *b, int size);
+
+int main()
+{
+    int arr1[MAX_SIZE], arr2[MAX_SIZE];
+    int size, i;
+
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+
+    printf("Enter %d elements in array1:\n", size);
+    for(i=0; i<size; i++)
+    {
+        scanf("%d", &arr1[i]);
+    }
+
+    copyArray(arr1, arr2, size);
+
+    printf("\nArray1: ");
+    for(i=0; i<size; i++)
+    {
+        printf("%d ", arr1[i]);
+    }
+
+    printf("\nArray2: ");
+    for(i=0; i<size; i++)
+    {
+        printf("%d ", arr2[i]);
+    }
+
+    return 0;
+}
+
+void copyArray(int *a, int *b, int size)
+{
+    int i;
+    for(i=0; i<size; i++)
+    {
+        *(b+i) = *(a+i);
+    }
+}
